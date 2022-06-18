@@ -5,11 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DevInSales.Controllers
 {
     [Route("api/user")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly SqlContext _context;
@@ -30,11 +32,12 @@ namespace DevInSales.Controllers
         /// <response code="400">Requisição inválida.</response>
         /// <response code="404">Usuário não encontrado.</response>
         /// <response code="500">Ocorreu uma exceção durante a consulta.</response>
+        [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [HttpGet]
+        [Authorize(Roles = "Administrador,Gerente,Usuario")]
         public async Task<ActionResult<IEnumerable<UserResponseDTO>>> Get(
             [FromQuery] string? name, [FromQuery] string? birth_date_min, [FromQuery] string? birth_date_max)
         {
@@ -79,11 +82,12 @@ namespace DevInSales.Controllers
         /// <response code="400">Usuário menor de idade ou email já cadastrado.</response>
         /// <response code="404">Perfil não encontrado.</response>
         /// <response code="500">Ocorreu uma exceção durante o cadastro.</response>
+        [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [HttpPost]
+        [Authorize(Roles = "Administrador,Gerente")]
         public async Task<ActionResult<User>> Create([FromBody] UserCreateDTO requisicao)
         {
             try
@@ -131,6 +135,7 @@ namespace DevInSales.Controllers
         [HttpDelete("{user_id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Authorize(Roles = "Administrador")]
         public async Task<IActionResult> DeleteUser([FromRoute] int user_id)
         {
             var userIdEncontrado = await _context.User.FindAsync(user_id);

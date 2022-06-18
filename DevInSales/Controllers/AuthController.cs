@@ -3,7 +3,9 @@ using DevInSales.Context;
 using DevInSales.DTOs;
 using DevInSales.Models;
 using DevInSales.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DevInSales.Controllers
 {
@@ -22,7 +24,7 @@ namespace DevInSales.Controllers
         [Route("login")]
         public IActionResult ApiLogin([FromBody] LoginDTO dto)
         {
-            var userLogin = _context.User.FirstOrDefault(l => l.Email == dto.Email && l.Password == dto.Password);
+            var userLogin = _context.User.Include(p => p.Profile).Where(l => l.Email == dto.Email && l.Password == dto.Password).FirstOrDefault();
 
             if (userLogin == null)
                 return NotFound("Usuário não existe ou a senha está incorreta!");
