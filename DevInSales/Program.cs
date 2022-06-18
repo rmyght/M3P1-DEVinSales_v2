@@ -25,17 +25,17 @@ builder.Services.AddSwaggerGen(opt =>
 builder.Services.AddDbContext<SqlContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("ServerConnection")));
 builder.Services.AddControllersWithViews().AddNewtonsoftJson();
 
-//Auth
-builder.Services.AddAuthentication(x =>
+// Auth
+builder.Services.AddAuthentication(op =>
 {
-    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    op.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    op.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
-    .AddJwtBearer(x =>
+    .AddJwtBearer(op =>
     {
-        x.RequireHttpsMetadata = false;
-        x.SaveToken = true;
-        x.TokenValidationParameters = new TokenValidationParameters
+        op.RequireHttpsMetadata = false;
+        op.SaveToken = true;
+        op.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
             IssuerSigningKey = new SymmetricSecurityKey(key),
@@ -54,6 +54,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
