@@ -1,8 +1,6 @@
 using DevInSales.Context;
 using DevInSales.DTOs;
 using DevInSales.Models;
-using DevInSales.Context;
-using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;

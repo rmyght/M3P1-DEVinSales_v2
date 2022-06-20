@@ -1,9 +1,9 @@
 ﻿using DevInSales.Models;
-using System.Diagnostics.CodeAnalysis;
+using System;
+using System.Collections.Generic;
 
 namespace DevInSales.Seeds
 {
-    [ExcludeFromCodeCoverage]
     public static class CitySeed
     {
 

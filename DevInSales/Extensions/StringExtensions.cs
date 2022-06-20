@@ -1,8 +1,10 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Text;
 
 namespace DevInSales.Extensions
 {
+    [ExcludeFromCodeCoverage]
     public static class StringExtensions
     {
         /// <summary>

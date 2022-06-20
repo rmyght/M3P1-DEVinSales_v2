@@ -51,7 +51,7 @@ namespace DevInSales.Migrations
 
                     b.HasIndex("City_Id");
 
-                    b.ToTable("Address");
+                    b.ToTable("Address", (string)null);
 
                     b.HasData(
                         new
@@ -104,7 +104,7 @@ namespace DevInSales.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Category", (string)null);
 
                     b.HasData(
                         new
@@ -134,7 +134,7 @@ namespace DevInSales.Migrations
 
                     b.HasIndex("State_Id");
 
-                    b.ToTable("City");
+                    b.ToTable("City", (string)null);
 
                     b.HasData(
                         new
@@ -33596,7 +33596,7 @@ namespace DevInSales.Migrations
 
                     b.HasIndex("ShippingCompanyId");
 
-                    b.ToTable("CityPrice");
+                    b.ToTable("CityPrice", (string)null);
 
                     b.HasData(
                         new
@@ -33718,7 +33718,7 @@ namespace DevInSales.Migrations
 
                     b.HasIndex("OrderId");
 
-                    b.ToTable("Delivery");
+                    b.ToTable("Delivery", (string)null);
                 });
 
             modelBuilder.Entity("DevInSales.Models.Order", b =>
@@ -33755,7 +33755,7 @@ namespace DevInSales.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Order");
+                    b.ToTable("Order", (string)null);
                 });
 
             modelBuilder.Entity("DevInSales.Models.OrderProduct", b =>
@@ -33786,7 +33786,7 @@ namespace DevInSales.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("Order_Product");
+                    b.ToTable("Order_Product", (string)null);
                 });
 
             modelBuilder.Entity("DevInSales.Models.Product", b =>
@@ -33815,7 +33815,7 @@ namespace DevInSales.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Product");
+                    b.ToTable("Product", (string)null);
 
                     b.HasData(
                         new
@@ -33906,7 +33906,7 @@ namespace DevInSales.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Profile");
+                    b.ToTable("Profile", (string)null);
 
                     b.HasData(
                         new
@@ -33943,7 +33943,7 @@ namespace DevInSales.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ShippingCompany");
+                    b.ToTable("ShippingCompany", (string)null);
 
                     b.HasData(
                         new
@@ -33986,7 +33986,7 @@ namespace DevInSales.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("State");
+                    b.ToTable("State", (string)null);
 
                     b.HasData(
                         new
@@ -34178,7 +34178,7 @@ namespace DevInSales.Migrations
 
                     b.HasIndex("StateId");
 
-                    b.ToTable("StatePrice");
+                    b.ToTable("StatePrice", (string)null);
 
                     b.HasData(
                         new
@@ -34302,7 +34302,7 @@ namespace DevInSales.Migrations
 
                     b.HasIndex("ProfileId");
 
-                    b.ToTable("User");
+                    b.ToTable("User", (string)null);
 
                     b.HasData(
                         new

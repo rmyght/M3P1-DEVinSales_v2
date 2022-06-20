@@ -1,7 +1,9 @@
 ﻿using DevInSales.Extensions;
+using System.Diagnostics.CodeAnalysis;
 
 namespace DevInSales.Models
 {
+    [ExcludeFromCodeCoverage]
     public class Category
     {
         public int Id { get; set; }

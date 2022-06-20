@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System.Diagnostics.CodeAnalysis;
 
 #nullable disable
 
 namespace DevInSales.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class InclusaoEmpresaPadraoSeed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
