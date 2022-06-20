@@ -1,5 +1,8 @@
-﻿namespace DevInSales.Models
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace DevInSales.Models
 {
+    [ExcludeFromCodeCoverage]
     public class Product
     {
         public int Id { get; set; }

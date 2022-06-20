@@ -1,5 +1,8 @@
-﻿namespace DevInSales.Seeds
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace DevInSales.Seeds
 {
+    [ExcludeFromCodeCoverage]
     public class DeliverySeed
     {
     }

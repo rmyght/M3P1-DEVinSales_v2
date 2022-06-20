@@ -1,9 +1,8 @@
 ﻿using DevInSales.Models;
-using System.Diagnostics.CodeAnalysis;
+using System.Collections.Generic;
 
 public class ProductSeed
 {
-    [ExcludeFromCodeCoverage]
     public static List<Product> Seed { get; set; } = new List<Product>() { new Product()
     {
         Id = 1,

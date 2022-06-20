@@ -1,22 +1,26 @@
 ﻿using DevInSales.Models;
+using System.Diagnostics.CodeAnalysis;
 
-namespace DevInSales.DTOs;
-public class ProductGetDTO
+namespace DevInSales.DTOs
 {
-    public string Name { get; set; }
-    public decimal Suggested_Price { get; set; }
-    public string Category_Name { get; set; }
-
-    public static explicit operator ProductGetDTO(Product product)
+    [ExcludeFromCodeCoverage]
+    public class ProductGetDTO
     {
-        if (product == null)
-            return null;
+        public string Name { get; set; }
+        public decimal Suggested_Price { get; set; }
+        public string Category_Name { get; set; }
 
-        return new ProductGetDTO()
+        public static explicit operator ProductGetDTO(Product product)
         {
-            Name = product.Name,
-            Suggested_Price = product.Suggested_Price,
-            Category_Name = product.Category.Name
-        };
+            if (product == null)
+                return null;
+
+            return new ProductGetDTO()
+            {
+                Name = product.Name,
+                Suggested_Price = product.Suggested_Price,
+                Category_Name = product.Category.Name
+            };
+        }
     }
 }
